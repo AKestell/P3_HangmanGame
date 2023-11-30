@@ -20,9 +20,15 @@ class HangmanGame:
                  "edward scissorhands", "pretty woman",]
         return random.choice(films)
 
+    def display_film(self):
+        display = ""
+        for letter in self.film_to_guess:
+            if letter in self.guessed_letters:
+                display += letter
+            else:
+                display += "_"
+        return display
+
 game = HangmanGame()
 
-print(game.film_to_guess)
-print(game.guessed_letters)
-print(game.incorrect_guesses)
-print(game.max_attempts)
+print(game.display_film())
