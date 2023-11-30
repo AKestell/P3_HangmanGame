@@ -3,15 +3,24 @@ import random
 
 class HangmanGame:
     def __init__(self):
+        """
+        Initialise the HangmanGame class.
+        """
         self.reset()
 
     def reset(self):
+        """
+        Resets the game state.
+        """
         self.film_to_guess = self.choose_film()
         self.guessed_letters = []
         self.incorrect_guesses = 0
         self.max_attempts = 6
 
     def choose_film(self):
+        """
+        Choose a random 90s film from the list for the user to guess.
+        """
         films = ["titanic", "clueless", "matrix", "fargo", "jumanji",
                  "braveheart", "trainspotting", "ghostbusters", "aladdin",
                  "goodfellas", "fargo", "heat", "armageddon", "volcano",
@@ -22,6 +31,9 @@ class HangmanGame:
         return random.choice(films)
 
     def display_film(self):
+        """
+        Displays what letters of the film have been guessed so far.
+        """
         display = ""
         for letter in self.film_to_guess:
             if letter in self.guessed_letters:
@@ -31,6 +43,9 @@ class HangmanGame:
         return display
 
     def hangman_graphic(self):
+        """
+        Display of the hangman graphic based on user guesses so far.
+        """
         if self.incorrect_guesses == 0:
             print("________      ")
             print("|      |      ")
@@ -86,6 +101,9 @@ class HangmanGame:
             self.reset()
 
     def play(self):
+        """
+        Gameplay code allowing users to input letters to guess the film.
+        """
         print("Welcome to 90s Film Hangman!")
 
         while self.incorrect_guesses < self.max_attempts:
@@ -120,6 +138,8 @@ class HangmanGame:
             print(f"\nSorry, out of tries. The film was {self.film_to_guess}")
 
 
+"""
+Initiates gameplay
+"""
 game = HangmanGame()
 game.play()
-
