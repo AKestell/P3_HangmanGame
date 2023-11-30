@@ -114,12 +114,12 @@ class HangmanGame:
             if set(self.guessed_letters) == set(self.film_to_guess):
                 print(f"\nCongratulations! You guessed the film: {self.film_to_guess}")
                 self.reset()
+                break
 
         if self.incorrect_guesses == self.max_attempts:
             print(f"\nSorry, you're out of attempts. The film was: {self.film_to_guess}")
 
 game = HangmanGame()
-
 game.play()
 
 
