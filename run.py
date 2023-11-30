@@ -85,9 +85,42 @@ class HangmanGame:
             self.reset()
 
 
+    def play(self):
+        print("Welcome to 90s Film Hangman!")
 
+        while self.incorrect_guesses < self.max_attempts:
+            current_display = self.display_film()
+            print(f"\Film: {current_display}")
+            self.hangman_graphic()
+
+            guess = input("Guess a letter: ").lower()
+
+            if len(guess) != 1 or not guess.isalpha():
+                print("Please enter a valid letter.")
+                continue
+
+            if guess in self.guessed_letters:
+                print("You've already guessed that letter. Please try again")
+                continue
+
+            self.guessed_letters.append(guess)
+
+            if guess not in self.film_to_guess:
+                self.incorrect_guesses += 1
+                print(f"Wrong guess! You have {self.max_attempts - self.incorrect_guesses} attempts left.")
+            else:
+                print("Corret guess!")
+
+            if set(self.guessed_letters) == set(self.film_to_guess):
+                print(f"\nCongratulations! You guessed the film: {self.film_to_guess}")
+                self.reset()
+
+        if self.incorrect_guesses == self.max_attempts:
+            print(f"\nSorry, you're out of attempts. The film was: {self.film_to_guess}")
 
 game = HangmanGame()
+
+game.play()
 
 
 
