@@ -78,22 +78,22 @@ class HangmanGame:
             print("________      ")
             print("|      |      ")
             print("|      0      ")
-            print("|     /|\     ")
+            print("|     /|\\    ")
             print("|             ")
             print("|             ")
         elif self.incorrect_guesses == 5:
             print("________      ")
             print("|      |      ")
             print("|      0      ")
-            print("|     /|\     ")
+            print("|     /|\\    ")
             print("|     /       ")
             print("|             ")
         else:
             print("________      ")
             print("|      |      ")
             print("|      0      ")
-            print("|     /|\     ")
-            print("|     / \     ")
+            print("|     /|\\    ")
+            print("|     / \\    ")
             print("|             ")
             print("The noose tightens around your neck, and you feel the")
             print("sudden urge to urinate.")
@@ -125,7 +125,8 @@ class HangmanGame:
 
             if guess not in self.film_to_guess:
                 self.incorrect_guesses += 1
-                print(f"Wrong guess! You have {self.max_attempts - self.incorrect_guesses} attempts left.")
+                print(f"Wrong guess! You have \
+                {self.max_attempts - self.incorrect_guesses} attempts left.")
             else:
                 print("Corret guess!")
 
