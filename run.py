@@ -12,14 +12,11 @@ class HangmanGame:
         """
         Resets the game state.
         """
-        print("reset func called")
         self.film_to_guess = self.choose_film()
         self.guessed_letters = []
         self.incorrect_guesses = 0
         self.max_attempts = 6
-        # self.game()
         self.play()
-
 
     def choose_film(self):
         """
@@ -102,7 +99,6 @@ class HangmanGame:
             print("The noose tightens around your neck, and you feel the")
             print("sudden urge to urinate.")
             print("GAME OVER!")
-            # self.reset()
 
     def play(self):
         """
@@ -115,7 +111,7 @@ class HangmanGame:
             print(f"\nFilm: {current_display}")
             self.hangman_graphic()
 
-            guess = input("Guess a letter: ").lower()
+            guess = input("Guess a letter:\n ").lower()
 
             if len(guess) != 1 or not guess.isalpha():
                 print("Please enter a valid letter.")
