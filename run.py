@@ -130,7 +130,7 @@ class HangmanGame:
             else:
                 print("Corret guess!")
 
-            if set(self.guessed_letters) == set(self.film_to_guess):
+            if all(letter in self.guessed_letters for letter in self.film_to_guess):
                 print(f"\nCongrats! You guessed the film {self.film_to_guess}")
                 self.reset()
                 break
