@@ -12,10 +12,14 @@ class HangmanGame:
         """
         Resets the game state.
         """
+        print("reset func called")
         self.film_to_guess = self.choose_film()
         self.guessed_letters = []
         self.incorrect_guesses = 0
         self.max_attempts = 6
+        # self.game()
+        self.play()
+
 
     def choose_film(self):
         """
@@ -98,7 +102,7 @@ class HangmanGame:
             print("The noose tightens around your neck, and you feel the")
             print("sudden urge to urinate.")
             print("GAME OVER!")
-            self.reset()
+            # self.reset()
 
     def play(self):
         """
@@ -130,8 +134,8 @@ class HangmanGame:
             else:
                 print("Corret guess!")
 
-            if all(letter in self.guessed_letters \
-                for letter in self.film_to_guess):
+            if all(letter in self.guessed_letters
+                   for letter in self.film_to_guess):
                 print(f"\nCongrats! You guessed the film {self.film_to_guess}")
                 self.reset()
                 break
@@ -139,6 +143,7 @@ class HangmanGame:
         if self.incorrect_guesses == self.max_attempts:
             self.hangman_graphic()
             print(f"\nSorry, out of tries. The film was {self.film_to_guess}")
+            self.reset()
 
 
 """
